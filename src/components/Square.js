@@ -3,7 +3,7 @@ import { SquareContainer, SquareContent } from './LayoutStyledComponents';
 
 const Square = (props) => {
   return(
-    <SquareContainer>
+    <SquareContainer onClick={props.handleClick}>
       <SquareContent>
         <h1>{props.children}</h1>
       </SquareContent>
