@@ -14,6 +14,7 @@ const Board = () => {
   }
 
   const handleClick = squareNumber => {
+    if (boardState[squareNumber] !== "") { return }
     const newState = Array.from(boardState)
     newState[squareNumber] = turn
     setState(newState)
