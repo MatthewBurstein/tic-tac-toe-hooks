@@ -1,38 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {BoardContainer} from './LayoutStyledComponents'
 import Square from './Square';
 
+const initialState = Array(9).fill("");
+
 const Board = () => {
+  const [boardState, setState] = useState(initialState)
   return (
     <BoardContainer>
-      <Square>
-        1
-      </Square>
-      <Square>
-        2
-      </Square>
-      <Square>
-        3
-      </Square>
-      <Square>
-        4
-      </Square>
-      <Square>
-        5
-      </Square>
-      <Square>
-        6
-      </Square>
-      <Square>
-        7
-      </Square>
-      <Square>
-        8
-      </Square>
-      <Square>
-        9
-      </Square>
+      {boardState.map((squareValue) => {
+        return (<Square>{squareValue}</Square>)
+      })}
     </BoardContainer>)
 }
+
 
 export default Board;
