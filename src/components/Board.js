@@ -5,13 +5,19 @@ import Square from './Square';
 const initialState = Array(9).fill("");
 
 const Board = () => {
+  const [turn, setTurn] = useState("X")
   const [boardState, setState] = useState(initialState)
 
+  const changeTurn = () => {
+    if (turn === "X") { return setTurn("O") }
+    if (turn === "O") { return setTurn("X") }
+  }
+
   const handleClick = squareNumber => {
-    console.log("in here")
-    const newState = Array.from(boardState);
-    newState[squareNumber] = "X"
+    const newState = Array.from(boardState)
+    newState[squareNumber] = turn
     setState(newState)
+    changeTurn()
   }
 
   return (
