@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {BoardContainer} from './LayoutStyledComponents'
 import Square from './Square';
+import evaluateBoard from '../logic/evaluateBoard'
 
 const initialState = Array(9).fill("");
 
@@ -19,6 +20,7 @@ const Board = () => {
     newState[squareNumber] = turn
     setState(newState)
     changeTurn()
+    evaluateBoard(boardState)
   }
 
   return (
@@ -32,7 +34,8 @@ const Board = () => {
           {squareValue}
         </Square>)
       })}
-    </BoardContainer>)
+    </BoardContainer>
+  )
 }
 
 
