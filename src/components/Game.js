@@ -20,11 +20,15 @@ const Game = () => {
   }, boardState)
 
   const handleSquareClick = squareNumber => {
-    if (boardState[squareNumber] !== "") { return }
+    if (boardState[squareNumber] !== "" || winner.length) { return }
     const newState = Array.from(boardState)
     newState[squareNumber] = turn
     setState(newState)
     changeTurn()
+  }
+
+  const handleReset = () => {
+    setState(initialBoardState)
   }
 
   return(
