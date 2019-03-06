@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import evaluateBoard from '../logic/evaluateBoard'
 import Board from './Board';
-import WinnerDetails from './WinnerDetails';
+import Controls from './Controls';
 
 const initialBoardState = Array(9).fill("");
 
@@ -33,11 +33,10 @@ const Game = () => {
         handleSquareClick={handleSquareClick}
         boardState={boardState}
       />
-      {winner.length !== 0 &&
-        <WinnerDetails 
-          winner={winner}
-        />
-      }
+      <Controls
+        winner={winner}
+        handleReset={handleReset}
+      />
     </>
   )
 }
