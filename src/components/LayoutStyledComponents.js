@@ -49,3 +49,9 @@ export const WinnersDetailsContainer = styled.div`
   padding 20px;
   text-align: left;
 `
+
+export const SignInModalContainer = styled.div`
+  max-width: 400px;
+  border: 1px solid black;
+  padding: 20px;
+`

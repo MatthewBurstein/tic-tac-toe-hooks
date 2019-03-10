@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import evaluateBoard from '../logic/evaluateBoard'
 import Board from './Board';
 import Controls from './Controls';
+import SignInModal from './SignInModal';
+
 
 const initialBoardState = Array(9).fill("");
 
@@ -41,6 +43,7 @@ const Game = () => {
         winner={winner}
         handleReset={handleReset}
       />
+      <SignInModal />
     </>
   )
 }
