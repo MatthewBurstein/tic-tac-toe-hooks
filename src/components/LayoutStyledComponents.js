@@ -51,7 +51,14 @@ export const WinnersDetailsContainer = styled.div`
 `
 
 export const SignInModalContainer = styled.div`
-  max-width: 400px;
+  display: ${p => p.open ? "block" : "none"};
+  width: 400px;
   border: 1px solid black;
   padding: 20px;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  top: 20%;
+  margin-left: -200px;
+  background-color: white;
 `
