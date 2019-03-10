@@ -11,6 +11,7 @@ const Game = () => {
   const [turn, setTurn] = useState("X")
   const [boardState, setState] = useState(initialBoardState)
   const [winner, setWinner] = useState([])
+  const [players, setPlayers] = useState({ player1: '', player2: '' })
 
   const changeTurn = () => {
     if (turn === "X") { return setTurn("O") }
@@ -43,7 +44,10 @@ const Game = () => {
         winner={winner}
         handleReset={handleReset}
       />
-      <SignInModal />
+      <SignInModal
+        open={true}
+        handleSubmit={()=>{}}
+      />
     </>
   )
 }
