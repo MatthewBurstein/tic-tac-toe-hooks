@@ -32,3 +32,20 @@ export const SquareContent = styled.div`
   text-align: center;
 `
 
+export const ControlsContainer = styled.div`
+  margin: 20px auto;
+  max-width 400px;
+  text-align: center;
+  border: 1px solid black;
+  padding 20px;
+`
+
+export const WinnersDetailsContainer = styled.div`
+  margin: 20px;
+  max-width 400px;
+  border-radius: 10px;
+  border: 1px solid black;
+  min-height: 100px;
+  padding 20px;
+  text-align: left;
+`

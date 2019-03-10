@@ -1,10 +1,11 @@
 import React from 'react';
+import { WinnersDetailsContainer } from './LayoutStyledComponents';
 
-const WinnerDetails = (props) => {
+const WinnerDetails = ({ winner }) => {
   return (
-    <div>
-      The winner is {props.winner}
-    </div>
+    <WinnersDetailsContainer>
+      <p>Winner: {winner && winner.winner}</p>
+    </WinnersDetailsContainer>
   )
 }
 
