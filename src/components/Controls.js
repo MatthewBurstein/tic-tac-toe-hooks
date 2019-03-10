@@ -1,11 +1,12 @@
 import React from 'react';
-import WinnerDetails from './WinnerDetails'
+import PlayersDetails from './PlayersDetails'
 import { ControlsContainer } from './LayoutStyledComponents'
 
-const Controls = ({ handleReset, winner }) => {
+const Controls = ({ players, handleReset, winner }) => {
   return (
     <ControlsContainer>
-      <WinnerDetails
+      <PlayersDetails
+        players={players}
         winner={winner[0]}
       />
       <button onClick={handleReset}>

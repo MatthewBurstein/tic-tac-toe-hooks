@@ -40,7 +40,7 @@ export const ControlsContainer = styled.div`
   padding 20px;
 `
 
-export const WinnersDetailsContainer = styled.div`
+export const PlayersDetailsContainer = styled.div`
   margin: 20px;
   max-width 400px;
   border-radius: 10px;

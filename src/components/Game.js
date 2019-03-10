@@ -11,6 +11,7 @@ const Game = () => {
   const [turn, setTurn] = useState("X")
   const [boardState, setState] = useState(initialBoardState)
   const [winner, setWinner] = useState([])
+  const [modalOpen, setModalOpen] = useState(true)
   const [players, setPlayers] = useState({ player1: '', player2: '' })
 
   const changeTurn = () => {
@@ -34,6 +35,14 @@ const Game = () => {
     setState(initialBoardState)
   }
 
+  const handleSubmitPlayers = ({ player1Name, player2Name }) => {
+    setModalOpen(false)
+    setPlayers({
+      player1: player1Name,
+      player2: player2Name
+    })
+  }
+
   return(
     <>
       <Board 
@@ -41,12 +50,13 @@ const Game = () => {
         boardState={boardState}
       />
       <Controls
+        players={players}
         winner={winner}
         handleReset={handleReset}
       />
       <SignInModal
-        open={true}
-        handleSubmit={()=>{}}
+        open={modalOpen}
+        handleSubmit={handleSubmitPlayers}
       />
     </>
   )
