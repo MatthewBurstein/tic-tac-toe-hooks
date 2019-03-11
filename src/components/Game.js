@@ -12,7 +12,7 @@ const Game = () => {
   const [boardState, setState] = useState(initialBoardState)
   const [winner, setWinner] = useState([])
   const [modalOpen, setModalOpen] = useState(true)
-  const [players, setPlayers] = useState({ player1: '', player2: '' })
+  const [players, setPlayers] = useState({ x: '', o: '' })
 
   const changeTurn = () => {
     if (turn === "X") { return setTurn("O") }
@@ -38,8 +38,8 @@ const Game = () => {
   const handleSubmitPlayers = ({ player1Name, player2Name }) => {
     setModalOpen(false)
     setPlayers({
-      player1: player1Name,
-      player2: player2Name
+      x: player1Name,
+      o: player2Name
     })
   }
 

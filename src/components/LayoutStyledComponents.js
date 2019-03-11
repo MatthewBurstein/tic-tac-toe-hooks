@@ -30,6 +30,10 @@ export const SquareContent = styled.div`
   bottom: 0;
   right: 0;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 4em;
 `
 
 export const ControlsContainer = styled.div`
