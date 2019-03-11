@@ -6,7 +6,7 @@ const PlayersDetails = ({ players, winner }) => {
     <PlayersDetailsContainer>
       <p data-testid="player-1-name">Player 1: {players.x}</p>
       <p data-testid="player-2-name">Player 2: {players.o}</p>
-      <p>Winner: {winner && winner.winner}</p>
+      <p>Winner: {winner}</p>
     </PlayersDetailsContainer>
   )
 }

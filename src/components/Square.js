@@ -1,11 +1,11 @@
 import React from 'react';
 import { SquareContainer, SquareContent } from './LayoutStyledComponents';
 
-const Square = (props) => {
+const Square = ({ handleClick, children }) => {
   return(
-    <SquareContainer onClick={props.handleClick}>
+    <SquareContainer onClick={handleClick}>
       <SquareContent>
-        <h1>{props.children}</h1>
+        <h1>{children}</h1>
       </SquareContent>
     </SquareContainer>
   )

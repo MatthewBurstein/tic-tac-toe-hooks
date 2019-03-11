@@ -10,7 +10,7 @@ const initialBoardState = Array(9).fill("");
 const Game = () => {
   const [turn, setTurn] = useState("X")
   const [boardState, setState] = useState(initialBoardState)
-  const [winner, setWinner] = useState([])
+  const [winningSquares, setWinningSquares] = useState([])
   const [modalOpen, setModalOpen] = useState(true)
   const [players, setPlayers] = useState({ x: '', o: '' })
 
@@ -20,11 +20,11 @@ const Game = () => {
   }
 
   useEffect(() => {
-    setWinner(evaluateBoard(boardState))  
+    setWinningSquares(evaluateBoard(boardState))  
   }, boardState)
 
   const handleSquareClick = squareNumber => {
-    if (boardState[squareNumber] !== "" || winner.length) { return }
+    if (boardState[squareNumber] !== "" || winningSquares.length) { return }
     const newState = Array.from(boardState)
     newState[squareNumber] = turn
     setState(newState)
@@ -43,6 +43,15 @@ const Game = () => {
     })
   }
 
+  const winner = () => {
+    if (winningSquares.length) {
+      const playerKey = boardState[winningSquares[0]].toLowerCase()
+      return players[playerKey]
+    } else {
+      return ""
+    }
+  }
+
   return(
     <>
       <Board 
@@ -51,7 +60,7 @@ const Game = () => {
       />
       <Controls
         players={players}
-        winner={winner}
+        winner={winner()}
         handleReset={handleReset}
       />
       <SignInModal

@@ -2,14 +2,14 @@ import React from 'react';
 import {BoardContainer} from './LayoutStyledComponents'
 import Square from './Square';
 
-const Board = props => {
+const Board = ({ boardState, handleSquareClick }) => {
   return (
     <BoardContainer>
-      {props.boardState.map((squareValue, idx) => {
+      {boardState.map((squareValue, idx) => {
         return (
         <Square
           key={idx}
-          handleClick={() => props.handleSquareClick(idx)}
+          handleClick={() => handleSquareClick(idx)}
         >
           {squareValue}
         </Square>)

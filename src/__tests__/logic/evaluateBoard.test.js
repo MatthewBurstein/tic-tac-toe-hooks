@@ -5,7 +5,7 @@ test("evaluateBoard determines a winner in a row", () => {
     "", "X", "O", 
     "O", "O", "O", 
     "X", "X", ""]
-  const expected = [{winner: "O", type: "row", position: 1}]
+  const expected = [3, 4, 5]
   expect(evaluateBoard(boardWithRowVictory)).toEqual(expected)
 })
 
@@ -15,7 +15,7 @@ test("evaluateBoard determines a winner in a column", () => {
     "X", "X", "O", 
     "O", "X", "O"
   ]
-  const expected = [{winner: "O", type: "column", position: 2}]
+  const expected = [2, 5, 8]
   expect(evaluateBoard(boardWithColumnVictory)).toEqual(expected)
 })
 
@@ -25,7 +25,7 @@ test("evaluateBoard determines a winner in backward diagonal", () => {
     "X", "X", "O", 
     "O", "X", "X"
   ]
-  const expected = [{winner: "X", type: "diagonal", position: "backward"}]
+  const expected = [0, 4, 8]
   expect(evaluateBoard(boardWithColumnVictory)).toEqual(expected)
 })
 
@@ -35,6 +35,16 @@ test("evaluateBoard determines a winner in forward diagonal", () => {
     "X", "X", "O", 
     "X", "O", "O"
   ]
-  const expected = [{winner: "X", type: "diagonal", position: "forward"}]
+  const expected = [2, 4, 6]
+  expect(evaluateBoard(boardWithColumnVictory)).toEqual(expected)
+})
+
+test("evaluateBoard returns all squares in winning lines", () => {
+  const boardWithColumnVictory = [
+    "O", "O", "X", 
+    "X", "X", "X", 
+    "O", "O", "X"
+  ]
+  const expected = [2, 3, 4, 5, 8]
   expect(evaluateBoard(boardWithColumnVictory)).toEqual(expected)
 })

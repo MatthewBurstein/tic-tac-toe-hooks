@@ -7,7 +7,7 @@ const Controls = ({ players, handleReset, winner }) => {
     <ControlsContainer>
       <PlayersDetails
         players={players}
-        winner={winner[0]}
+        winner={winner}
       />
       <button onClick={handleReset}>
         Reset

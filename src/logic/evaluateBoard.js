@@ -1,57 +1,50 @@
 const evaluateBoard = board => {
-  const rows = [board.slice(0,3), board.slice(3, 6), board.slice(6, 9)]
-  const rowWinners = evaluateRows(rows)
-  const columnWinners = evaluateColumns(rows)
-  const diagonalWinners = evaluateDiagonals(rows)
-  const winners = [rowWinners, columnWinners, diagonalWinners].filter(winners => !!winners)
-  return winners
+  const rowWinners = evaluateRows(board)
+  const columnWinners = evaluateColumns(board)
+  const diagonalWinners = evaluateDiagonals(board)
+  return getUniquevalues([...rowWinners, ...columnWinners, ...diagonalWinners]).sort()
 }
 
-const evaluateRows = rows => {
-  let output
-  rows.forEach((row, idx) => {
-    if (row[0] && row.every(el => el === row[0])) {
-      output = {
-        winner: row[0],
-        type: "row",
-        position: idx
-      }
-    }
-  })
-  return output
+const evaluateRows = board => {
+  return (
+    isWinningSet([0, 1, 2], board) ||
+    isWinningSet([3, 4, 5], board) ||
+    isWinningSet([6, 7, 8], board) ||
+    []
+  )
 }
 
-const evaluateColumns = rows => {
-  let output;
-  rows.forEach((_, idx) => {
-    const column = rows.map(row => row[idx])
-    if (column[0] && column.every(el => el === column[0])) {
-      output = {
-        winner: column[0],
-        type: "column",
-        position: idx
-      }
-    }
-  })
-  return output
+const evaluateColumns = board => {
+  return(
+    isWinningSet([0 ,3 ,6], board) ||
+    isWinningSet([1, 4, 7], board) ||
+    isWinningSet([2, 5, 8], board) ||
+    []
+  )
 }
 
-const evaluateDiagonals = rows => {
-  if (rows[0][0] && rows.map((row, idx) => row[idx]).every(square => square === rows[0][0])) {
-    return {
-      winner: rows[0][0],
-      type: "diagonal",
-      position: "backward"
-    }
+const evaluateDiagonals = board => {
+  return(
+    isWinningSet([0, 4, 8], board) ||
+    isWinningSet([2, 4, 6], board) ||
+    []
+  )
+}
+
+const isWinningSet = (squares, board) => {
+  if (
+    board[squares[0]] &&
+    squares.every(square => board[square] === board[squares[0]])
+  ) {
+    return squares
   }
-  
-  if (rows[0][2] && rows[0][2] === rows[1][1] && rows[2][0] === rows[1][1]) {
-    return {
-      winner: rows[0][2],
-      type: "diagonal",
-      position: "forward"
-    }
-  }
+}
+
+const getUniquevalues = arr => {
+  return arr.reduce((acc, current) => {
+    if (!acc.find(el => el === current)) { acc.push(current) }
+    return acc
+  }, [])
 }
 
 export default evaluateBoard;
