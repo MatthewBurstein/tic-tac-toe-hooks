@@ -11,11 +11,14 @@ export const BoardContainer = styled.div`
   margin: auto;
   max-width: 500px;
 `
+
 export const SquareContainer = styled.div`
   position: relative;
   overflow: hidden;
   border: 1px solid black;
-
+  -webkit-box-shadow: ${props => props.isWinner ? "0px 0px 10px #b59a15" : ""};
+  -moz-box-shadow: ${props => props.isWinner ? "0px 0px 10px #b59a15" : ""};
+  box-shadow: ${props => props.isWinner ? "0px 0px 10px #b59a15" : ""};
   &:before {
     content: "";
     display: block;

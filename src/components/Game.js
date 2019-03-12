@@ -57,6 +57,7 @@ const Game = () => {
       <Board 
         handleSquareClick={handleSquareClick}
         boardState={boardState}
+        winningSquares={winningSquares}
       />
       <Controls
         players={players}
